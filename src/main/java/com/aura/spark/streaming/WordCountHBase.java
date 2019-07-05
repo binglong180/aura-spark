@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class WordCountHBase {
 
-    private static final String zkAddress = "bigdata:2181";
+    private static final String zkAddress = "master:2181";
     private static final byte[] CF_WORD = Bytes.toBytes("w");
     private static final byte[] Q_COUNT = Bytes.toBytes("c");
 

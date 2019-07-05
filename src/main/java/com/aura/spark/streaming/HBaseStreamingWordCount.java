@@ -14,6 +14,7 @@ import scala.Tuple2;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.function.Consumer;
 
 public class HBaseStreamingWordCount {
@@ -39,12 +40,14 @@ public class HBaseStreamingWordCount {
                         try {
 //                            WordCountHBase.save(t1, wc._1, wc._2, time.milliseconds());
                             WordCountHBase.incr(t2, wc._1, wc._2);
+                            WordCountHBase.save(t2, wc._1, wc._2, new Date().getTime());
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     }
                 });
 //                t1.close();
+
                 t2.close();
             });
         });
